@@ -32,14 +32,14 @@ class ResultPanel extends JPanel {
 
    private String createText(Optional<String> result) {
       if (result.isPresent()) {
-         return "The bird is a " + result.get() + ".";
+         return Messages.resultPresent(result.get());
       } else {
-         return "I can't identify that bird.";
+         return Messages.resultAbsent();
       }
    }
 
    private JButton createResetButton(CountDownLatch latch) {
-      return createButton("Search again.", "reset", new MouseAdapter() {
+      return createButton(Messages.reset(), "reset", new MouseAdapter() {
          @Override
          public void mouseClicked(final MouseEvent e) {
             setEnabled(false);

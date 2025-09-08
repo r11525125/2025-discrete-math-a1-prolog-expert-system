@@ -32,7 +32,7 @@ public class GraphicalUserInterface extends JFrame implements UserInterface {
    }
 
    private GraphicalUserInterface() {
-      super("Expert System");
+      super(Messages.appTitle());
       setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       pack();
       setSize(380, 500);

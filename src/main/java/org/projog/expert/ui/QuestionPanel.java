@@ -32,18 +32,20 @@ class QuestionPanel extends JPanel {
                for (Component c : getComponents()) {
                   c.setEnabled(false);
                }
-               queue.add(possible); // notify waiting code that an answer has been selected
+               // enqueue original token (English) for Prolog unification
+               queue.add(possible);
             }
          };
-         add(createAnswerButton(possible, mouseAdapter));
+         String display = Messages.val(possible);
+         add(createAnswerButton(display, possible, mouseAdapter));
       }
    }
 
    private JLabel createQuestionLabel(String question) {
-      return createLabel("What is the value for " + question + "?", "question");
+      return createLabel(Messages.question(question), "question");
    }
 
-   private JButton createAnswerButton(String possible, MouseAdapter mouseAdapter) {
-      return createButton(possible, possible, mouseAdapter);
+   private JButton createAnswerButton(String text, String name, MouseAdapter mouseAdapter) {
+      return createButton(text, name, mouseAdapter);
    }
 }

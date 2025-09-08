@@ -1,6 +1,14 @@
 # prolog-expert-system
 [![Build Status](https://github.com/s-webber/prolog-expert-system/actions/workflows/github-actions.yml/badge.svg)](https://github.com/s-webber/prolog-expert-system/actions/)
 
+Chinese documentation: see `README.zh-TW.md`.
+
+## Original Source
+- Repository: https://github.com/s-webber/prolog-expert-system
+- Prolog engine: https://projog.org
+
+This fork adds a Traditional Chinese UI, species name translations, and a Chinese README for use in a 2025 Discrete Mathematics assignment example.
+
 ## About
 
 This project demonstrates how an expert system can be constructed by integrating a graphical user interface written in Java with rules written in [Prolog](https://en.wikipedia.org/wiki/Prolog). The open source [Projog](http://projog.org "Prolog interpreter for Java") library is used to integrate Java with Prolog.
