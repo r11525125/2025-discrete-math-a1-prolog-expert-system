@@ -1,38 +1,85 @@
-# prolog-expert-system
-[![Build Status](https://github.com/s-webber/prolog-expert-system/actions/workflows/github-actions.yml/badge.svg)](https://github.com/s-webber/prolog-expert-system/actions/)
+# 鳥類專家系統（Java + Prolog）
 
-Chinese documentation: see `README.zh-TW.md`.
+本專案示範如何以 Java 圖形介面結合 Prolog 規則，實作一個鳥類分類的專家系統。規則採用 Prolog，透過 Projog 整合；UI 與互動則由 Java Swing 實作。此版本用於 2025 離散數學 作業一「邏輯規則與專家系統設計」之示範，已內建繁體中文介面與物種中英對照。
 
-## Original Source
-- Repository: https://github.com/s-webber/prolog-expert-system
-- Prolog engine: https://projog.org
+## 原始來源（致謝）
+- 上游倉庫：https://github.com/s-webber/prolog-expert-system
+- Prolog 引擎：https://projog.org
 
-This fork adds a Traditional Chinese UI, species name translations, and a Chinese README for use in a 2025 Discrete Mathematics assignment example.
+本版本新增：繁體中文 UI、物種名稱「中文（英文）」顯示、與中文說明文件。
 
-## About
+## 環境需求
+- Java 8 或以上（JDK）
+- 不需安裝 Maven，專案已附 `mvnw/mvnw.cmd` 包裝器（第一次建置需網路下載相依套件）
 
-This project demonstrates how an expert system can be constructed by integrating a graphical user interface written in Java with rules written in [Prolog](https://en.wikipedia.org/wiki/Prolog). The open source [Projog](http://projog.org "Prolog interpreter for Java") library is used to integrate Java with Prolog.
+## 建置與執行
+1) 建置：
+- macOS/Linux：`./mvnw package`
+- Windows：`mvnw.cmd package`
 
-The subject of the expert system is the classification of birds. The rules are taken from the [birds.pl](http://www.amzi.com/AdventureInProlog/appendix.php#Birds) program described in the book ["Adventure in Prolog"](http://www.amzi.com/AdventureInProlog/) by Dennis Merritt (ISBN: 978-1520918914). 
+2) 執行：
+- `java -jar target/prolog-expert-system-0.1.0-SNAPSHOT.jar`
 
-## How to run
+啟動後會出現 GUI 視窗（標題「鳥類專家系統」）。系統依規則提問（如「大小」、「顏色」、「足部」…），在每題下方選擇一個答案，最終顯示辨識結果。
 
+## 規則檔案位置
+- Prolog 規則主檔：`src/main/resources/birds.pl`
+- Java 載入方式：`RulesEngine` 使用 `projog.consultResource("birds.pl")` 由 classpath 載入
+- 擴充規則：直接編輯 `birds.pl`，或新增更多 `.pl` 放在 `src/main/resources/`，並在 Java 端再呼叫一次 `consultResource`（或於 `birds.pl` 內使用 Prolog 的 `consult/1`）
 
-You can build the application using the command:
+## 介面與語言
+- 問題與選項：以中文顯示，但內部仍使用英文 token 與 Prolog 規則對應
+- 物種名稱：結果以「中文（英文）」顯示，例如「綠頭鴨 (mallard)」
+- 重新辨識：結果頁有「重新辨識」按鈕可回到提問流程
 
-```
-./mvnw package
-```
+## 範例選擇（保證可辨識）
+下列為可直接導向特定鳥種的「屬性 → 值」範例。實際提問順序會依規則推理而異，但只要選到這些值，最終即可辨識出來。
 
-You can then run the application using the command:
+- 賴桑信天翁 (laysan albatross)
+  - 鼻孔：外伸管狀；棲地：海上；喙形：彎曲；大小：大；翼形：狹長；顏色：白色
+- 黑足信天翁 (black footed albatross)
+  - 鼻孔：外伸管狀；棲地：海上；喙形：彎曲；大小：大；翼形：狹長；顏色：深色
+- 暴風鸌 (fulmar)
+  - 鼻孔：外伸管狀；棲地：海上；喙形：彎曲；大小：中等；飛行方式：撲翼-滑翔
+- 嘯天鵝 (whistling swan)
+  - 足部：有蹼；喙形：扁平；頸部：長；顏色：白色；飛行方式：笨重；叫聲：悶悶的音樂口哨
+- 號角天鵝 (trumpeter swan)
+  - 足部：有蹼；喙形：扁平；頸部：長；顏色：白色；飛行方式：笨重；叫聲：響亮號角聲
+- 加拿大雁 (canada goose) — 冬季／美國
+  - 足部：有蹼；喙形：扁平；大小：圓胖；飛行方式：有力；季節：冬季；州：佛蒙特；頭部：黑色；臉頰：白色
+- 加拿大雁 (canada goose) — 夏季／加拿大
+  - 足部：有蹼；喙形：扁平；大小：圓胖；飛行方式：有力；季節：夏季；省：魁北克；頭部：黑色；臉頰：白色
+- 雪雁 (snow goose)
+  - 足部：有蹼；喙形：扁平；大小：圓胖；飛行方式：有力；顏色：白色
+- 綠頭鴨 (mallard) — 雄
+  - 足部：有蹼；喙形：扁平；取食方式：水面取食；飛行方式：敏捷；叫聲：呱呱；頭部：綠色
+- 綠頭鴨 (mallard) — 雌
+  - 足部：有蹼；喙形：扁平；取食方式：水面取食；飛行方式：敏捷；叫聲：呱呱；顏色：斑駁棕色
+- 針尾鴨 (pintail)
+  - 足部：有蹼；喙形：扁平；取食方式：水面取食；飛行方式：敏捷；叫聲：短促口哨
+- 美洲禿鷹 (turkey vulture)
+  - 足部：彎曲利爪；喙形：尖銳彎曲；食性：肉類；取食方式：食腐；翼形：寬廣；飛行姿態：V 型
+- 加州神鷹 (california condor)
+  - 足部：彎曲利爪；喙形：尖銳彎曲；食性：肉類；取食方式：食腐；翼形：寬廣；飛行姿態：扁平
+- 美洲紅隼 (sparrow hawk)
+  - 足部：彎曲利爪；喙形：尖銳彎曲；翼形：細長尖形；頭部：大；尾巴：末端狹窄；食性：昆蟲
+- 游隼 (peregrine falcon)
+  - 足部：彎曲利爪；喙形：尖銳彎曲；翼形：細長尖形；頭部：大；尾巴：末端狹窄；食性：鳥類
+- 冠霸鶲 (great crested flycatcher)
+  - 足部：一根長後趾；喙形：扁平；食性：飛行昆蟲；尾巴：長且鐵鏽色
+- 灰喉霸鶲 (ash throated flycatcher)
+  - 足部：一根長後趾；喙形：扁平；食性：飛行昆蟲；喉部：白色
+- 家燕 (barn swallow)
+  - 足部：一根長後趾；翼形：細長尖形；喙形：短；尾巴：叉狀
+- 崖沙燕 (cliff swallow)
+  - 足部：一根長後趾；翼形：細長尖形；喙形：短；尾巴：方形
+- 紫燕 (purple martin)
+  - 足部：一根長後趾；翼形：細長尖形；喙形：短；顏色：深色
 
-```
-java -jar target/prolog-expert-system-0.1.0-SNAPSHOT.jar
-```
+提示：請盡量避免頻繁選「以上皆非」，那會使規則無法滿足，導致「無法辨識」。
 
-## Resources
-
-- [Calling Prolog from Java](http://projog.org/calling-prolog-from-java.html)
-- [Adding Extra Functionality to Prolog Using Java](http://projog.org/extending-prolog-with-java.html)
-- [Adventure in Prolog](http://www.amzi.com/AdventureInProlog/) - contains an example of writing an expert system using Prolog.
-- [AssertJ Swing](https://joel-costigliola.github.io/assertj/assertj-swing.html) - used by the unit tests to interact with the UI.
+## 常見問題（FAQ）
+- 執行後只有英文？請使用本專案加入的最新程式碼（UI 已本地化）。若你改動過 UI 程式，請參考 `org.projog.expert.ui.Messages` 的對照表。
+- 總是顯示「無法辨識」？代表你的回答組合未能滿足任何物種規則。可先依照上方範例嘗試，或在 `birds.pl` 擴充規則。
+- 無法顯示 GUI？請在有圖形介面的桌面環境執行，或在本機直接運行 JAR。
+- 想新增更多地區或選項？`birds.pl` 中 `state/1`、`province/1`、`region/1` 的實作是簡化版本，可自行擴充更多地區。
