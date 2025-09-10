@@ -1,0 +1,19 @@
+species_en,species_zh,bill_hooked,bill_flat,size_large,size_medium,color_white,color_black,wings_long_narrow,feet_webbed,live_at_sea,nostrils_external_tubular,family_albatross,order_tubenose,order_waterfowl,result
+laysan albatross,賴桑信天翁,1,0,1,0,1,0,1,0,1,1,1,1,0,True
+black footed albatross,黑足信天翁,1,0,1,0,0,1,1,0,1,1,1,1,0,True
+fulmar,暴風鸌,1,0,0,1,0,0,1,0,1,1,0,1,0,True
+whistling swan,嘯天鵝,0,0,1,0,1,0,0,0,0,0,0,0,1,True
+trumpeter swan,小號天鵝,0,0,1,0,1,0,0,0,0,0,0,0,1,True
+mallard,綠頭鴨,0,1,0,0,0,0,0,1,0,0,0,0,1,True
+pintail,針尾鴨,0,1,0,0,0,0,0,1,0,0,0,0,1,True
+canada goose,加拿大雁,0,0,1,0,0,1,0,1,0,0,0,0,1,True
+snow goose,雪雁,0,0,0,1,1,0,0,1,0,0,0,0,1,True
+turkey vulture,土耳其禿鷹,0,1,1,0,0,1,0,0,0,0,0,0,0,True
+california condor,加州神鷲,0,1,1,0,0,1,0,0,0,0,0,0,0,True
+sparrow hawk,雀鷹,0,1,0,1,0,0,0,0,0,0,0,0,0,True
+peregrine falcon,遊隼,0,1,0,1,0,0,1,0,0,0,0,0,0,True
+great crested flycatcher,大冠蟬霸,0,0,0,0,0,0,0,0,0,0,0,0,0,True
+ash throated flycatcher,灰喉蟬霸,0,0,0,0,0,0,0,0,0,0,0,0,0,True
+barn swallow,家燕,0,0,0,0,0,0,1,0,0,0,0,0,0,True
+cliff swallow,崖燕,0,0,0,0,0,0,0,0,0,0,0,0,0,True
+purple martin,紫崖燕,0,0,0,0,0,1,0,0,0,0,0,0,0,True

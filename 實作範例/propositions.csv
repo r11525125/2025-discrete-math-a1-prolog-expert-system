@@ -1,0 +1,49 @@
+prop,functor,token
+nostrils_external_tubular,nostrils,external tubular
+live_at_sea,live,at sea
+bill_flat,bill,flat
+bill_short,bill,short
+bill_sharp_hooked,bill,sharp hooked
+bill_hooked,bill,hooked
+size_large,size,large
+size_plump,size,plump
+size_medium,size,medium
+eats_birds,eats,birds
+eats_insects,eats,insects
+eats_flying_insects,eats,flying insects
+eats_meat,eats,meat
+feet_webbed,feet,webbed
+feet_curved_talons,feet,curved talons
+feet_one_long_backward_toe,feet,one long backward toe
+wings_long_narrow,wings,long narrow
+wings_long_pointed,wings,long pointed
+wings_broad,wings,broad
+neck_long,neck,long
+color_white,color,white
+color_dark,color,dark
+color_mottled_brown,color,mottled brown
+flight_ponderous,flight,ponderous
+flight_powerful,flight,powerful
+flight_agile,flight,agile
+flight_flap_glide,flight,flap glide
+feed_on_water_surface,feed,on water surface
+feed_scavange,feed,scavange
+head_black,head,black
+head_green,head,green
+head_large,head,large
+tail_narrow_at_tip,tail,narrow at tip
+tail_forked,tail,forked
+tail_long_rusty,tail,long rusty
+tail_square,tail,square
+voice_muffled_musical_whistle,voice,muffled musical whistle
+voice_loud_trumpeting,voice,loud trumpeting
+voice_quack,voice,quack
+voice_short_whistle,voice,short whistle
+season_winter,season,winter
+season_summer,season,summer
+cheek_white,cheek,white
+flight_profile_v_shaped,flight_profile,v shaped
+flight_profile_flat,flight_profile,flat
+throat_white,throat,white
+country_united_states,country,united states
+country_canada,country,canada
